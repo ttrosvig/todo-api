@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://example.com/example.json",
+	"type": "object",
+	"title": "The root schema",
+	"description": "This is the basic schema for a todo",
+	"default": {},
+	"examples": [
+		{
+			"description": "Walk Mavis",
+			"completed": "false"
+		}
+	],
+	"required": [ "description", "completed" ],
+	"properties": {
+		"description": {
+			"$id": "#/properties/description",
+			"type": "string",
+			"title": "Description",
+			"description": "A description of the todo",
+			"default": "",
+			"examples": [ "Walk Mavis" ]
+		},
+		"completed": {
+			"$id": "#/properties/completed",
+			"type": "string",
+			"title": "Completed",
+			"description": "A string that is either true or false",
+			"default": "",
+			"examples": [ "false", "true" ]
+		}
+	},
+	"additionalProperties": false
+}
