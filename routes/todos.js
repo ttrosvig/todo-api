@@ -16,6 +16,17 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
+// Get todos by folder
+router.get('/folders/:folder_id', async (req, res, next) => {
+	try {
+		const todos = await Todo.getTodoByFolder(req.params.folder_id);
+
+		return res.json({ todos });
+	} catch (err) {
+		return next(err);
+	}
+});
+
 // Add a todo
 router.post('/', async (req, res, next) => {
 	try {

@@ -9,6 +9,13 @@ class Todo {
 		return result.rows;
 	}
 
+	// Find todos by folder id
+	static async getTodoByFolder(folder_id) {
+		const result = await db.query(`SELECT * FROM todos WHERE folder_id = $1`, [ folder_id ]);
+
+		return result.rows;
+	}
+
 	// Add a todo
 	static async addTodo(data) {
 		const result = await db.query(
