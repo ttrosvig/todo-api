@@ -1,5 +1,6 @@
 \c todo-app
 
+DROP TABLE IF EXISTS folders;
 DROP TABLE IF EXISTS todos;
 
 CREATE TABLE folders (
@@ -9,7 +10,7 @@ CREATE TABLE folders (
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
-  folder_name TEXT NOT NULL REFERENCES folders,
+  folder_name TEXT NOT NULL,
   description TEXT,
   completed TEXT
 );
