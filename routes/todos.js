@@ -52,7 +52,7 @@ router.put('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
 	try {
-		const todo = await Todo.deleteTodo(req.params.id);
+		await Todo.deleteTodo(req.params.id);
 
 		return res.status(202).json({ status: `Item successfully deleted` });
 	} catch (err) {
