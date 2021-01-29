@@ -9,7 +9,7 @@ CREATE TABLE folders (
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
-  folder_id INTEGER NOT NULL REFERENCES folders,
+  folder_name TEXT NOT NULL REFERENCES folders,
   description TEXT,
   completed TEXT
 );
