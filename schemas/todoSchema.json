@@ -3,31 +3,40 @@
 	"$id": "http://example.com/example.json",
 	"type": "object",
 	"title": "The root schema",
-	"description": "This is the basic schema for a todo",
+	"description": "Todo Schema",
 	"default": {},
 	"examples": [
 		{
 			"description": "Walk Mavis",
-			"completed": "false"
+			"completed": false,
+			"folder_name": "Pet chores"
 		}
 	],
-	"required": [ "description", "completed" ],
+	"required": [ "description", "completed", "folder_name" ],
 	"properties": {
 		"description": {
 			"$id": "#/properties/description",
 			"type": "string",
 			"title": "Description",
-			"description": "A description of the todo",
+			"description": "Describes a todo",
 			"default": "",
 			"examples": [ "Walk Mavis" ]
 		},
 		"completed": {
 			"$id": "#/properties/completed",
-			"type": "string",
+			"type": "boolean",
 			"title": "Completed",
-			"description": "A string that is either true or false",
+			"description": "Says if the todo is true or false",
 			"default": "",
 			"examples": [ "false", "true" ]
+		},
+		"folder_name": {
+			"$id": "#/properties/folder_name",
+			"type": "string",
+			"title": "Folder Name",
+			"description": "The name of the folder that the todo belongs to",
+			"default": "",
+			"examples": [ "Pet chores" ]
 		}
 	},
 	"additionalProperties": false

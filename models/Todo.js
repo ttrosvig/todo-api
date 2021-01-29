@@ -11,20 +11,19 @@ class Todo {
 
 	// Add a todo
 	static async addTodo(data) {
-		const result = await db.query(`INSERT INTO todos (description, completed) VALUES ($1, $2) RETURNING *`, [
-			data.description,
-			data.completed
-		]);
+		const result = await db.query(
+			`INSERT INTO todos (description, completed, folder_name) VALUES ($1, $2, $3) RETURNING *`,
+			[ data.description, data.completed, data.folder_name ]
+		);
 
 		return result.rows[0];
 	}
 
 	static async updateTodo(data, id) {
-		const result = await db.query(`UPDATE todos SET description = $1, completed = $2 WHERE id = $3 RETURNING *`, [
-			data.description,
-			data.completed,
-			id
-		]);
+		const result = await db.query(
+			`UPDATE todos SET description = $1, completed = $2, folder_name = $3 WHERE id = $4 RETURNING *`,
+			[ data.description, data.completed, data.folder_name, id ]
+		);
 
 		if (result.rows.length === 0) {
 			throw new ExpressError(`There is no item with id: ${id}`, 404);

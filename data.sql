@@ -12,5 +12,5 @@ CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
   folder_name TEXT NOT NULL,
   description TEXT,
-  completed TEXT
+  completed BOOLEAN
 );
