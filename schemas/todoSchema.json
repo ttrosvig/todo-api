@@ -9,10 +9,10 @@
 		{
 			"description": "Walk Mavis",
 			"completed": false,
-			"folder_name": "Pet chores"
+			"folder_id": 1
 		}
 	],
-	"required": [ "description", "completed", "folder_name" ],
+	"required": [ "description", "completed", "folder_id" ],
 	"properties": {
 		"description": {
 			"$id": "#/properties/description",
@@ -30,13 +30,13 @@
 			"default": "",
 			"examples": [ "false", "true" ]
 		},
-		"folder_name": {
-			"$id": "#/properties/folder_name",
-			"type": "string",
+		"folder_id": {
+			"$id": "#/properties/folder_id",
+			"type": "number",
 			"title": "Folder Name",
-			"description": "The name of the folder that the todo belongs to",
+			"description": "The id of the folder the todo belongs to",
 			"default": "",
-			"examples": [ "Pet chores" ]
+			"examples": [ 1 ]
 		}
 	},
 	"additionalProperties": false

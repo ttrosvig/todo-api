@@ -12,8 +12,8 @@ class Todo {
 	// Add a todo
 	static async addTodo(data) {
 		const result = await db.query(
-			`INSERT INTO todos (description, completed, folder_name) VALUES ($1, $2, $3) RETURNING *`,
-			[ data.description, data.completed, data.folder_name ]
+			`INSERT INTO todos (description, completed, folder_id) VALUES ($1, $2, $3) RETURNING *`,
+			[ data.description, data.completed, data.folder_id ]
 		);
 
 		return result.rows[0];

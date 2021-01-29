@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
+// Add a todo
 router.post('/', async (req, res, next) => {
 	try {
 		const validation = validate(req.body, todoSchema);
@@ -25,12 +26,13 @@ router.post('/', async (req, res, next) => {
 
 		const todo = await Todo.addTodo(req.body);
 
-		return res.json({ todo });
+		return res.status(201).json({ todo });
 	} catch (err) {
 		return next(err);
 	}
 });
 
+// Update a todo
 router.put('/:id', async (req, res, next) => {
 	try {
 		if ('id' in req.body) {
@@ -50,6 +52,7 @@ router.put('/:id', async (req, res, next) => {
 	}
 });
 
+// Delete a todo
 router.delete('/:id', async (req, res, next) => {
 	try {
 		await Todo.deleteTodo(req.params.id);

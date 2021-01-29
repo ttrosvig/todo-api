@@ -8,9 +8,11 @@ app.use(cors());
 
 // Import routes
 const todoRoutes = require('./routes/todos');
+const folderRoutes = require('./routes/folders');
 
 // Use the routes
 app.use('/todos', todoRoutes);
+app.use('/folders', folderRoutes);
 
 // 404 handler
 app.use(function(req, res, next) {
