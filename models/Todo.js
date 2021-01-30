@@ -28,8 +28,8 @@ class Todo {
 
 	static async updateTodo(data, id) {
 		const result = await db.query(
-			`UPDATE todos SET description = $1, completed = $2, folder_name = $3 WHERE id = $4 RETURNING *`,
-			[ data.description, data.completed, data.folder_name, id ]
+			`UPDATE todos SET description = $1, completed = $2, folder_id = $3 WHERE id = $4 RETURNING *`,
+			[ data.description, data.completed, data.folder_id, id ]
 		);
 
 		if (result.rows.length === 0) {
