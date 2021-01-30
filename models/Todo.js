@@ -43,7 +43,7 @@ class Todo {
 		const result = await db.query(`DELETE FROM todos WHERE id = $1 RETURNING id`, [ id ]);
 
 		if (result.rows.length === 0) {
-			throw new ExpressError(`There is no item with id: ${id}`, 404);
+			throw new ExpressError(`There is no todo with id: ${id}`, 404);
 		}
 
 		return result.rows[0];

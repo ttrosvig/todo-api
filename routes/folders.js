@@ -32,4 +32,15 @@ router.post('/', async (req, res, next) => {
 	}
 });
 
+// Delete a folder
+router.delete('/:id', async (req, res, next) => {
+	try {
+		await Folder.deleteFolder(req.params.id);
+
+		return res.status(202).json({ status: 'Folder successfully deleted' });
+	} catch (err) {
+		return next(err);
+	}
+});
+
 module.exports = router;

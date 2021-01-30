@@ -10,7 +10,7 @@ CREATE TABLE folders (
 
 CREATE TABLE todos (
   id SERIAL PRIMARY KEY,
-  folder_id INTEGER NOT NULL REFERENCES folders,
+  folder_id INTEGER NOT NULL REFERENCES folders ON DELETE CASCADE,
   description TEXT,
   completed BOOLEAN
 );
