@@ -1,3 +1,5 @@
+-- Or todo-app-test for test database
+
 \c todo-app
 
 DROP TABLE IF EXISTS todos;
