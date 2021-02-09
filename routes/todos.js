@@ -5,17 +5,6 @@ const Todo = require('../models/Todo');
 const { validate } = require('jsonschema');
 const todoSchema = require('../schemas/todoSchema.json');
 
-// Get todos
-router.get('/', async (req, res, next) => {
-	try {
-		const todos = await Todo.getTodos();
-
-		return res.json({ todos });
-	} catch (err) {
-		return next(err);
-	}
-});
-
 // Get todos by folder
 router.get('/folders/:folder_id', async (req, res, next) => {
 	try {
