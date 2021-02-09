@@ -30,15 +30,6 @@ afterEach(async () => {
   );`);
 });
 
-describe('/GET todos', () => {
-	it('should return the seeded todo', async () => {
-		let res = await request(app).get('/todos');
-
-		expect(res.statusCode).toBe(200);
-		expect(res.body).toEqual({ todos: [ { id: 1, description: 'Test Todo', folder_id: 1, completed: false } ] });
-	});
-});
-
 describe('GET /todos/folders', () => {
 	it('should return the seeded todo inside of the folder', async () => {
 		let res = await request(app).get('/todos/folders/1');
@@ -78,11 +69,6 @@ describe('PUT /todos/:id', () => {
 
 		expect(res.statusCode).toBe(202);
 		expect(res.body).toEqual({ todo: { id: 1, description: 'Edited Todo', completed: true, folder_id: 1 } });
-
-		const getRes = await request(app).get('/todos');
-
-		expect(getRes.statusCode).toBe(200);
-		expect(getRes.body).toEqual({ todos: [ { id: 1, description: 'Edited Todo', completed: true, folder_id: 1 } ] });
 	});
 });
 
