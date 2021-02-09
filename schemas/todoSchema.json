@@ -14,14 +14,6 @@
 	],
 	"required": [ "description", "completed", "folder_id" ],
 	"properties": {
-		"id": {
-			"$id": "#/properties/description",
-			"type": "integer",
-			"title": "ID",
-			"description": "Autoincrementing id",
-			"default": "",
-			"examples": [ 1 ]
-		},
 		"description": {
 			"$id": "#/properties/description",
 			"type": "string",
